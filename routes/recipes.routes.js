@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { addRecipe, getRecipe, getRecipes,updateRecipe,deleteRecipe } from "../controllers/recipes.controller.js";
 
 
 const router = Router();
@@ -6,28 +7,15 @@ const router = Router();
 
 // Define your routes
  
-router.post('/', (req, res) => {
-    res.send("Create new recipe");
-    
-});
+router.post('/recipes', addRecipe);
 
-router.get('/recipes', (req, res) => {
-    res.send("Get all recipes");
-    
-});
+router.get('/recipes', getRecipes);
 
-router.get('/recipes/:id', (req, res) => {
-    res.send(`Get single recipe with id: ${req.params.id}`);
-    
-});
+router.get('/recipes/:id', getRecipe);
 
-router.patch('/recipes/:id', (req, res) => {
-    res.send(`Update single receipe! by id: ${req.params.id}`);
-});
+router.patch('/recipes/:id',updateRecipe);
 
-router.delete('/recipes/:id', (req, res) => {
-    res.send(`Delete single receipe!byid: ${req.params.id} `);
-});
+router.delete('/recipes/:id', deleteRecipe);
 
 
 
