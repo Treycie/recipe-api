@@ -28,6 +28,7 @@ app.use(recipesRoutes);
 await mongoose.connect(process.env.MONGO_URI);
 
 // Listen for incoming requests
-app.listen(4000, () => {
-    console.log("Express app is running!")
+const port = process.env.port || 4000;
+app.listen(port, () => {
+    console.log(`Express app is running on port ${port}!`);
 });
